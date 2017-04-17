@@ -1,0 +1,9 @@
+- if flash.any?
+  - user_facing_flashes.each do |msg_type, msg|
+    | <div class="alert alert-dismissable alert-
+    = flash_class(msg_type)
+    |">
+    button.close[data-dismiss="alert"]
+      | &times;
+    = msg
+    | </div>
