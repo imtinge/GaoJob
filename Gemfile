@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'slim'
+gem 'slim-rails'
 gem 'bootstrap-sass'
 
 group :development, :test do
