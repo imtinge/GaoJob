@@ -2,9 +2,9 @@ module JobsHelper
 
   def render_job_status(job)
     if job.is_hidden
-      "(Hidden)"
+      fa_icon 'lock'
     else
-      "(Public)"
+      fa_icon 'globe'
     end
   end
 end
