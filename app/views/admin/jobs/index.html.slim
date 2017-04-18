@@ -5,11 +5,25 @@ br
 br
 
 table.table.table-boldered
+  thead
+    tr
+      td 岗位名称
+      td 收到简历数量
+      td 薪资下限
+      td 薪资上限
+      td 管理选项
+      td 发布时间
   - @jobs.each do |job|
     tr
       td
         = render_job_status job
         =< link_to job.title, admin_job_path(job)
+      td
+        = link_to job.resumes.count, admin_job_resumes_path(job)
+      td
+        = job.wage_lower_bound
+      td
+        = job.wage_upper_bound
       td
         => link_to 'Edit', edit_admin_job_path(job)
         =< link_to 'Destroy', admin_job_path(job), method: :delete, data: { :confirm => "Are you sure?" }
