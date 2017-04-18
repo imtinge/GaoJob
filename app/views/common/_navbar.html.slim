@@ -18,5 +18,8 @@ nav.navbar.navbar-default[role="navigation"]
               = current_user.email
               b.caret
             ul.dropdown-menu
+              - if current_user.admin?
+                li
+                  = link_to 'Admin Panel', admin_jobs_path
               li
                 = link_to '退出', destroy_user_session_path, method: :delete
