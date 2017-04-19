@@ -1,3 +1,31 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+
+// footer
+#soc-media-list {
+  li {
+    a {
+      color: #fff;
+    }
+  }
+}
+
+// navbar
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #fff;
+}
+
+#sign-up-btn {
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 4px;
+  border: 1px solid #fff;
+}
+

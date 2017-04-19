@@ -1,3 +1,4 @@
+h2 工作一览
 .dropdown.clearfix.pull-right
   button.btn.btn-default.dropdown-toggle#dropdownMenuDivider[type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"]
     | 排序
@@ -9,22 +10,27 @@
       = link_to("按照薪资上限排序", jobs_path(:order => "by_upper_bound"))
     li
       = link_to("按照发表时间排序", jobs_path )
-br
-br
-table.table.table-boldered
+table.table.table-boldered.table-hover
   thead
     tr
-      td 岗位名称
-      td 薪资下限
-      td 薪资上限
-      td 发布时间
-  - @jobs.each do |job|
-    tr
-      td
-        = link_to job.title, job_path(job)
-      td
-        = job.wage_lower_bound
-      td
-        = job.wage_upper_bound
-      td
-        = job.created_at
+      th 发布日期
+      th 岗位名称
+      th 简历数量
+      th 薪资下限
+      th 薪资上限
+  tbody
+    - @jobs.each do |job|
+      tr
+        td
+          = job.created_at.to_date
+        td
+          => render_job_status job
+          =< link_to job.title, admin_job_path(job)
+        td
+          = link_to job.resumes.count, admin_job_resumes_path(job)
+        td
+          = job.wage_lower_bound
+        td
+          = job.wage_upper_bound
+.container.text-center
+  = will_paginate @jobs, renderer: BootstrapPagination::Rails

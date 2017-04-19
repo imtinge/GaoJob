@@ -1,16 +1,26 @@
-nav.navbar.navbar-default[role="navigation"]
-  .container-fluid
+nav.navbar.navbar-inverse.navbar-fixed-top[role="navigation"]
+  .container
     .navbar-header
+      button.navbar-toggle.collapsed[type='button' data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"]
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
       a.navbar-brand[href="/"]
-        | Job Listing
+        => fa_icon "map-o"
+        | 高就网
 
     .collapse.navbar-collapse#bs-example-navbar-collapse-1
       ul.nav.navbar-nav.navbar-right
         - unless current_user
           li
-            a[href='#' data-toggle='modal' data-target='#signup-modal'] 注册
+            a[href='/users/sign_in']
+              => fa_icon 'sign-in'
+              | 登入
           li
-            a[href='#' data-toggle='modal' data-target='#login-modal'] 登入
+            a#sign-up-btn[href='/users/sign_up']
+              => fa_icon 'user-plus'
+              | 注册
         - else
           li.dropdown
             a.dropdown[href="#" data-toggle="dropdown"]
@@ -23,36 +33,4 @@ nav.navbar.navbar-default[role="navigation"]
                   = link_to 'Admin Panel', admin_jobs_path
               li
                 = link_to '退出', destroy_user_session_path, method: :delete
-
-.modal.fade#login-modal[tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' style='display: none;']
-  .modal-dialog[role='document']
-    .modal-content
-      .modal-header
-        button.close[type='button' data-dismiss='modal' aria-label='Close']
-          span[aria-hidden='true'] &times;
-        h2.text-center.modal-title#myModalLabel Log in
-      .modal-body
-        = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-          = devise_error_messages!
-          = f.input :email, required: false, autofocus: true
-          = f.input :password, required: false
-          = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-          .modal-footer
-            = f.button :submit, 'Log in', class: 'btn btn-primary'
-
-.modal.fade#signup-modal[tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' style='display: none;']
-  .modal-dialog[role='document']
-    .modal-content
-      .modal-header
-        button.close[type='button' data-dismiss='modal' aria-label='Close']
-          span[aria-hidden='true'] &times;
-        h2.text-center.modal-title#myModalLabel Log in
-      .modal-body
-        = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-          = devise_error_messages!
-          = f.error_notification
-          = f.input :email, required: true, autofocus: true
-          = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
-          = f.input :password_confirmation, required: true
-          .modal-footer
-            = f.button :submit, 'Sign up', class: 'btn btn-primary'
+      = render 'common/search_bar'

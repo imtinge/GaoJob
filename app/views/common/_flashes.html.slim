@@ -1,9 +1,10 @@
-- if flash.any?
-  - user_facing_flashes.each do |msg_type, msg|
-    | <div class="alert alert-dismissable alert-
-    = flash_class(msg_type)
-    |">
-    button.close[data-dismiss="alert"]
-      | &times;
-    = msg
-    | </div>
+.row
+  - if flash.any?
+    - user_facing_flashes.each do |msg_type, msg|
+      | <div class="alert alert-dismissable alert-
+      = flash_class(msg_type)
+      | " role="alert" style="margin-bottom:0; border: 0; border-radius: 0 !important;">
+      button.close[data-dismiss="alert"]
+        span[aria-hidden='true'] &times;
+      = msg
+      | </div>

@@ -1,3 +1,66 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// index
+#img-jumbotron {
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image: url('https://www.tuchuang001.com/images/2017/04/15/business-man-and-woman-handshake-in-work-office-picjumbo-com.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 205px;
+  padding-bottom: 230px;
+  margin-bottom: 0;
+  color: #fff;
+}
+
+#employer-section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+#partner-section {
+  background-color: #F7FAFA;
+  border-bottom: 1px solid rgba(144, 144, 144, 0.25);
+  border-top: 1px solid rgba(144, 144, 144, 0.25);
+  padding-bottom: 30px;
+}
+
+.partner-logo {
+  width: 160px;
+  height: 160px;
+}
+
+.heading {
+  font-weight: normal;
+  margin-top: 130px;
+  font-size: 50px;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.employer-panel {
+  img {
+    width: 240px;
+    height: 320px;
+  }
+}
+
+.feedback-panel {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #F7FAFA;
+  border-bottom: 1px solid rgba(144, 144, 144, 0.25);
+  border-top: 1px solid rgba(144, 144, 144, 0.25);
+}
+
+.feedback-panel-active {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+

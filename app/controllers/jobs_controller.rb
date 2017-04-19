@@ -2,7 +2,7 @@ class JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
 
   def index
-    @jobs = case params[:order]
+    jobs = case params[:order]
             when 'by_lower_bound'
               Job.published.order('wage_lower_bound DESC')
             when 'by_upper_bound'
@@ -10,6 +10,16 @@ class JobsController < ApplicationController
             else
               Job.published.recent
             end
+    @jobs = jobs.paginate(page: params[:page], per_page: 20)
+  end
+
+  def search
+    @query_string = params[:q].gsub(/\\|\'|\/|\?/, "") if params[:q].present?
+    search_criteria = { title_or_description_cont: @query_string }
+
+    @q = Job.published.ransack(search_criteria)
+
+    @jobs = @q.result(distinct: true).paginate(page: params[:page], per_page: 20)
   end
 
   def show

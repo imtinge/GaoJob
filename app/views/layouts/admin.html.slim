@@ -1,13 +1,16 @@
 doctype html
 html
   head
-    title Job Listing
+    title 在这高就
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    link[rel="shortcut icon" href="/images/favicon.ico"]
   body
     .container-fluid
-      = render 'common/navbar'
+      .row
+        = render 'common/navbar'
+      .row[style='margin-top: 50px']
       = render 'common/flashes'
       .row
         .col-md-2

@@ -1,35 +1,35 @@
+h2 工作一览
 .pull-right
-  = link_to 'Add a job', new_admin_job_path, class: 'btn btn-default'
-
-br
-br
-
-table.table.table-boldered
+  = link_to '发布岗位', new_admin_job_path, class: 'btn btn-default'
+table.table.table-boldered.table-hover
   thead
     tr
-      td 岗位名称
-      td 收到简历数量
-      td 薪资下限
-      td 薪资上限
-      td 管理选项
-      td 发布时间
-  - @jobs.each do |job|
-    tr
-      td
-        = render_job_status job
-        =< link_to job.title, admin_job_path(job)
-      td
-        = link_to job.resumes.count, admin_job_resumes_path(job)
-      td
-        = job.wage_lower_bound
-      td
-        = job.wage_upper_bound
-      td
-        => link_to 'Edit', edit_admin_job_path(job)
-        =< link_to 'Destroy', admin_job_path(job), method: :delete, data: { :confirm => "Are you sure?" }
-        - if job.is_hidden
-          =< link_to 'Publish', publish_admin_job_path(job), method: :post, class: 'btn btn-xs btn-default'
-        - else
-          =< link_to 'Hide', hide_admin_job_path(job), method: :post, class: 'btn btn-xs btn-default'
-      td
-        = job.created_at
+      th 发布日期
+      th 岗位名称
+      th 简历数量
+      th 薪资下限
+      th 薪资上限
+      th[colspan="3"] 管理选项
+  tbody
+    - @jobs.each do |job|
+      tr
+        td
+          = job.created_at.to_date
+        td
+          => render_job_status job
+          =< link_to job.title, admin_job_path(job)
+        td
+          = link_to job.resumes.count, admin_job_resumes_path(job)
+        td
+          = job.wage_lower_bound
+        td
+          = job.wage_upper_bound
+        td 
+          => link_to fa_icon('pencil'), edit_admin_job_path(job), class: 'btn btn-xs btn-primary'
+          => link_to fa_icon('trash-o'), admin_job_path(job), method: :delte, class: 'btn btn-xs btn-danger'
+          -if job.is_hidden
+            => link_to fa_icon('eye'), publish_admin_job_path(job), method: :post, class: 'btn btn-xs btn-success'
+          -else
+            => link_to fa_icon('eye-slash'), hide_admin_job_path(job), method: :post, class: 'btn btn-xs btn-warning'
+.container.text-center
+  = will_paginate @jobs, renderer: BootstrapPagination::Rails
