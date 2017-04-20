@@ -24,7 +24,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top[role="navigation"]
         - else
           li.dropdown
             a.dropdown[href="#" data-toggle="dropdown"]
-              | Hi,
+              => fa_icon 'user-circle-o'
               = current_user.email
               b.caret
             ul.dropdown-menu

@@ -1,7 +1,7 @@
 h2 工作一览
 .pull-right
   = link_to '发布岗位', new_admin_job_path, class: 'btn btn-default'
-table.table.table-boldered.table-hover
+table.table.table-responsive.table-bordered.table-striped
   thead
     tr
       th 发布日期
@@ -25,11 +25,11 @@ table.table.table-boldered.table-hover
         td
           = job.wage_upper_bound
         td 
-          => link_to fa_icon('pencil'), edit_admin_job_path(job), class: 'btn btn-xs btn-primary'
-          => link_to fa_icon('trash-o'), admin_job_path(job), method: :delte, class: 'btn btn-xs btn-danger'
+          => link_to fa_icon('pencil') + ' 编辑', edit_admin_job_path(job), class: 'btn btn-xs btn-primary'
+          => link_to fa_icon('trash-o') + ' 删除', admin_job_path(job), method: :delte, class: 'btn btn-xs btn-danger'
           -if job.is_hidden
-            => link_to fa_icon('eye'), publish_admin_job_path(job), method: :post, class: 'btn btn-xs btn-success'
+            => link_to fa_icon('eye') + ' 公开', publish_admin_job_path(job), method: :post, class: 'btn btn-xs btn-success'
           -else
-            => link_to fa_icon('eye-slash'), hide_admin_job_path(job), method: :post, class: 'btn btn-xs btn-warning'
+            => link_to fa_icon('eye-slash') + ' 隐藏', hide_admin_job_path(job), method: :post, class: 'btn btn-xs btn-warning'
 .container.text-center
   = will_paginate @jobs, renderer: BootstrapPagination::Rails

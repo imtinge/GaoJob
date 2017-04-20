@@ -1,0 +1,24 @@
+.job-info
+	.header
+		h3
+			= link_to job.title, job_path(job)
+			small.pull-right.text-muted
+				=> fa_icon 'clock-o'
+				|
+				= local_time(job.created_at).to_date
+	.job-content
+		.row
+			.col-md-4
+				span.badge[style="background-color: #f0ad4e;"]
+					= fa_icon 'rmb'
+					= job.wage_lower_bound
+					| ~
+					= job.wage_upper_bound
+			.col-md-4
+				=> fa_icon 'group'
+				| 百度
+			.col-md-4
+				=> fa_icon 'map-marker'
+				| 北京
+				
+		

@@ -10,27 +10,8 @@ h2 工作一览
       = link_to("按照薪资上限排序", jobs_path(:order => "by_upper_bound"))
     li
       = link_to("按照发表时间排序", jobs_path )
-table.table.table-boldered.table-hover
-  thead
-    tr
-      th 发布日期
-      th 岗位名称
-      th 简历数量
-      th 薪资下限
-      th 薪资上限
-  tbody
-    - @jobs.each do |job|
-      tr
-        td
-          = job.created_at.to_date
-        td
-          => render_job_status job
-          =< link_to job.title, job_path(job)
-        td
-          = link_to job.resumes.count, job_resumes_path(job)
-        td
-          = job.wage_lower_bound
-        td
-          = job.wage_upper_bound
+.container
+	ul
+		= render partial: 'job', collection: @jobs, as: :job
 .container.text-center
   = will_paginate @jobs, renderer: BootstrapPagination::Rails
