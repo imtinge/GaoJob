@@ -1,120 +1,70 @@
-.row
-  #img-jumbotron.jumbotron.text-center
-    h1 
-      strong 高就网
-    br
-    h2 找工作，从未如此迅捷
-    h2 让你快速找到属于你的优质工作，高枕无忧，东成西就
-    br
-    a.btn.btn-lg[href='/jobs' style='background-color: #28CC75; color: #444444;']
-      | 高就之路，扬帆启航
-#employee-section
-  .feedback-panel.row
-    .container-fluid
-      .col-md-7
-        h2.heading
-          | 高就拯救了迷茫的我
-          br
-          small.text-muted
-            |  曾经的我恐惧毕业
-        p.lead
-          | Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-      .col-md-5
-        img.image.hover.img-circle[src="https://www.tuchuang001.com/images/2017/04/13/bram-naus-221602.md.jpg" style="width: 500px; height: 500px;" ]
-  .feedback-panel-active.row
-    .container-fluid
-      .col-md-5
-        img.image.hover.img-circle[src="https://www.tuchuang001.com/images/2017/04/13/anna-demianenko-12400.md.jpg" style="width: 500px; height: 500px;" ]
-      .col-md-7
-        h2.heading
-          | 高就给了我的新生
-          br
-          small.text-muted
-            |  糟糕的工作曾扰乱了我的生活
-        p.lead
-          | Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-  .feedback-panel.row
-    .container-fluid
-      .col-md-7
-        h2.heading
-          | 高就让我重新爱上工作
-          br
-          small.text-muted
-            |  成为一个快乐的厨子
-        p.lead
-          | Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-      .col-md-5
-        img.image.hover.img-circle[src="https://www.tuchuang001.com/images/2017/04/13/zachary-staines-181102.md.jpg" style="width: 500px; height: 500px;"  ]
+#img-jumbotron.jumbotron.text-center[style='margin-top: -80px;']
+  h1 
+    strong 高就网
+  br
+  h2 找工作，从未如此迅捷
+  h2 让你快速找到属于你的优质工作，高枕无忧，东成西就
+  br
+  a.btn.btn-lg[href='/jobs' style='background-color: #28CC75; color: #fff;']
+    | 你的高就之路，从这开始
+#service-section
+  .row
+    .container.text-center
+      h3 高就这样帮你找到优质的工作
+      p.lead 五大承诺
+      hr
+      .row
+        .col-md-4
+          .media
+            .media-left.media-middle
+              img.media-object.img-rounded[style="width: 60px; height: 60px;" src="https://www.tuchuang001.com/images/2017/04/22/chance.th.jpg"]
+            .media-body.media-middle
+              strong
+                | 每周有5~10 个来自优质企业的机会，包括出国和回国工作的机会。
+        .col-md-4
+          .media
+            .media-left.media-middle
+              img.media-object.img-rounded[style="width: 60px; height: 60px;" src="https://www.tuchuang001.com/images/2017/04/22/company.th.jpg"]
+            .media-body.media-middle
+              strong
+                | 这里只有世界500强的企业，为让更好的人遇见再好的机会。
+        .col-md-4
+          .media
+            .media-left.media-middle
+              img.media-object.img-rounded[style="width: 60px; height: 60px;" src="https://www.tuchuang001.com/images/2017/04/22/security.th.jpg"]
+            .media-body.media-middle
+              strong
+                | 尊重你的隐私，企业看不到你的联系方式，除非你同意。
+      hr
+      .row
+        .col-md-1
+        .col-md-10
+          .col-md-6
+            .media
+              .media-left.media-middle
+                img.media-object.img-rounded[style="width: 60px; height: 60px;" src="https://www.tuchuang001.com/images/2017/04/22/consultant.th.jpg"]
+              .media-body.media-middle
+                strong
+                  | 顾问在整个过程中向你提供专业的帮助和建议。
+          .col-md-6
+            .media
+              .media-left.media-middle
+                img.media-object.img-rounded[style="width: 60px; height: 60px;" src="https://www.tuchuang001.com/images/2017/04/22/gift.th.jpg"]
+              .media-body.media-middle
+                strong
+                  | 我们不向你收取任何费用，相反，入职后，你还会收到我们的一份贺礼。
+        .col-md-1
+      hr
 
+javascript:
+  $(document).ready(function() {
+    $(".navbar-inverse").css("background", "transparent").css('border', '0');
+  });
 
-#employer-section.row
-  h1.text-center BAT老大们对高就的肯定
-  br
-  br
-  .container-fluid
-    .employer-panel.col-md-4
-      img.image.hover.center-block.img-rounded[src='http://www.imosi.com/images/news_upLoadImg/20101206143236581.jpg']
-      blockquote
-        p.text-center 百度的80%的员工都来自高就
-    .employer-panel.col-md-4
-      img.image.hover.center-block.img-rounded[src='http://img.blog.cntv.cn/attachments/2011/05/2598130_201105041351411.jpg']
-      blockquote
-        p.text-center 高就是我们阿里外星人才的基地
-    .employer-panel.col-md-4
-      img.image.hover.center-block.img-rounded[src='http://a4.att.hudong.com/56/55/01300000569933128919555710427_s.jpg']
-      blockquote
-        p.text-center 高就是腾讯高管们的摇篮
-
-#partner-section.row
-  h1.text-center 合作伙伴
-  br
-  .container-fluid
-    .col-md-1
-    .col-md-10
-      .col-md-2
-        = image_tag 'https://www.tuchuang001.com/images/2017/04/15/Lenovo_512px_1064050_easyicon.net.md.png', class: 'img-rounded partner-logo hover center-block'
-      .col-md-2
-        = image_tag 'https://www.tuchuang001.com/images/2017/04/15/YouTube_512px_1064096_easyicon.net.md.png', class: 'img-rounded partner-logo hover center-block'
-      .col-md-2
-        = image_tag 'https://www.tuchuang001.com/images/2017/04/15/Yahoo_alt_512px_1064091_easyicon.net.md.png', class: 'img-rounded partner-logo hover center-block'
-      .col-md-2
-        = image_tag 'https://www.tuchuang001.com/images/2017/04/15/Twitter_alt_512px_1064079_easyicon.net.md.png', class: 'img-rounded partner-logo hover center-block'
-      .col-md-2
-        = image_tag 'https://www.tuchuang001.com/images/2017/04/15/Linked_in_512px_1064052_easyicon.net.md.png', class: 'img-rounded partner-logo hover center-block'
-      .col-md-2
-        = image_tag 'https://www.tuchuang001.com/images/2017/04/15/Intel_512px_1064049_easyicon.net.md.png', class: 'img-rounded partner-logo hover center-block'
-    .col-md-1
-  br
-  .container-fluid
-    .col-md-1
-    .col-md-10
-      .col-md-2
-        = image_tag 'https://www.tuchuang001.com/images/2017/04/15/HP_512px_1064046_easyicon.net.md.png', class: 'img-rounded partner-logo hover center-block'
-      .col-md-2
-        = image_tag 'https://www.tuchuang001.com/images/2017/04/15/Facebook_512px_1064014_easyicon.net.md.png', class: 'img-rounded partner-logo hover center-block'
-      .col-md-2
-        = image_tag 'https://www.tuchuang001.com/images/2017/04/15/Flickr_512px_1064018_easyicon.net.md.png', class: 'img-rounded partner-logo hover center-block'
-      .col-md-2
-        = image_tag 'https://www.tuchuang001.com/images/2017/04/15/Dell_512px_1064001_easyicon.net.md.png', class: 'img-rounded partner-logo hover center-block'
-      .col-md-2
-        = image_tag 'https://www.tuchuang001.com/images/2017/04/15/Bing_alt_512px_1063993_easyicon.net.md.png', class: 'img-rounded partner-logo hover center-block'
-      .col-md-2
-        = image_tag 'https://www.tuchuang001.com/images/2017/04/15/Windows_512px_1063981_easyicon.net.md.png', class: 'img-rounded partner-logo hover center-block'
-    .col-md-1
-  br
-  .container-fluid
-    .col-md-1
-    .col-md-10
-      .col-md-2
-        = image_tag 'https://www.tuchuang001.com/images/2017/04/15/Amazon_512px_1063987_easyicon.net.md.png', class: 'img-rounded partner-logo hover center-block'
-      .col-md-2
-        = image_tag 'https://www.tuchuang001.com/images/2017/04/15/Asus_512px_1063991_easyicon.net.md.png', class: 'img-rounded partner-logo hover center-block'
-      .col-md-2
-        = image_tag 'https://www.tuchuang001.com/images/2017/04/15/Acer_512px_1063985_easyicon.net.md.png', class: 'img-rounded partner-logo hover center-block'
-      .col-md-2
-        = image_tag 'https://www.tuchuang001.com/images/2017/04/15/Ubuntu_512px_1063975_easyicon.net.md.png', class: 'img-rounded partner-logo hover center-block'
-      .col-md-2
-        = image_tag 'https://www.tuchuang001.com/images/2017/04/15/Apps_steam_512px_1184669_easyicon.net.md.png', class: 'img-rounded partner-logo hover center-block'
-      .col-md-2
-        = image_tag 'https://www.tuchuang001.com/images/2017/04/15/Evernote_512px_1063786_easyicon.net.md.png', class: 'img-rounded partner-logo hover center-block'
-    .col-md-1
+  $(window).scroll(function() {
+      var value = $(this).scrollTop();
+      if (value > 700)
+          $(".navbar-inverse").css("background", "#000");
+      else
+          $(".navbar-inverse").css("background", "transparent");
+  });

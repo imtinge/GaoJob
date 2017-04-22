@@ -15,12 +15,41 @@ job_info = [
   '高级数据挖掘工程师',
   '高级客服经理'
 ]
-for i in 1..10 do
-  Job.create!([title: job_info[rand(job_info.length)], description: job_info[rand(job_info.length)], wage_upper_bound: rand(40..79) * 1000, wage_lower_bound: rand(20..39) * 1000, is_hidden: 'false'])
+job_locations = [
+  '北京',
+  '上海',
+  '广州',
+  '深圳',
+  '重庆',
+  '成都',
+  '贵阳',
+  '大连',
+  '西安',
+  '天津',
+  '杭州',
+]
+company_names = [
+  '搜狐',
+  'IBM',
+  '阿里巴巴',
+  '华为',
+  'HP',
+  '腾讯',
+  '百度',
+  '知乎',
+  '用友',
+  '去哪儿',
+  '中兴',
+]
+
+for i in 1..15 do
+  job_title = job_info[rand(job_info.length)]
+  Job.create!(title: job_title, description: job_title, company_name: company_names[rand(company_names.length)], location: job_locations[rand(job_locations.length)], wage_upper_bound: rand(40..79) * 1000, wage_lower_bound: rand(20..39) * 1000, is_hidden: 'false')
 end
-for i in 1..10 do
-  Job.create!([title: job_info[rand(job_info.length)], description: job_info[rand(job_info.length)], wage_upper_bound: rand(40..79) * 1000, wage_lower_bound: rand(20..39) * 1000, is_hidden: 'true'])
+for i in 1..15 do
+  job_title = job_info[rand(job_info.length)]
+  Job.create!(title: job_title, description: job_title, company_name: company_names[rand(company_names.length)], location: job_locations[rand(job_locations.length)], wage_upper_bound: rand(40..79) * 1000, wage_lower_bound: rand(20..39) * 1000, is_hidden: 'true')
 end
 
-puts '10 Public jobs created.'
-puts '10 Hidden jobs created.'
+puts '15 Public jobs created.'
+puts '15 Hidden jobs created.'

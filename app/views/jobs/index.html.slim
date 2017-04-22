@@ -1,17 +1,19 @@
-h2 工作一览
-.dropdown.clearfix.pull-right
-  button.btn.btn-default.dropdown-toggle#dropdownMenuDivider[type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"]
-    | 排序
-    span.caret
-  ul.dropdown-menu[aria-labelledby="dropdownMenuDivider"]
-    li
-      = link_to("按照薪资下限排序", jobs_path(:order => "by_lower_bound"))
-    li
-      = link_to("按照薪资上限排序", jobs_path(:order => "by_upper_bound"))
-    li
-      = link_to("按照发表时间排序", jobs_path )
 .container
-	ul
-		= render partial: 'job', collection: @jobs, as: :job
+  .dropdown.pull-right
+    button.btn.btn-default.dropdown-toggle#dropdownMenuDivider[type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"]
+      | 排序
+      span.caret
+    ul.dropdown-menu[aria-labelledby="dropdownMenuDivider"]
+      li
+        = link_to("按照薪资下限排序", jobs_path(:order => "by_lower_bound"))
+      li
+        = link_to("按照薪资上限排序", jobs_path(:order => "by_upper_bound"))
+      li
+        = link_to("按发布时间排序", jobs_path(:order => "by_upper_bound"))
+  br
+  br
+.container
+  ul
+    = render partial: 'job', collection: @jobs, as: :job
 .container.text-center
   = will_paginate @jobs, renderer: BootstrapPagination::Rails

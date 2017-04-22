@@ -5,12 +5,10 @@ html
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    link[rel="shortcut icon" href="/images/favicon.ico"]
+    = favicon_link_tag
   body
-    .container-fluid
-      .row
-        = render 'common/navbar'
-      .row[style='margin-top: 50px;']
-      = render 'common/flashes'
+    = render 'common/navbar'
+    = render 'common/flashes'
+    .row[style='margin-top: 80px;']
       = yield
     = render 'common/footer'
