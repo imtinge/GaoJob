@@ -1,8 +1,8 @@
-.pull-right
-  = link_to '发布岗位', new_admin_job_path, class: 'btn btn-default'
-br
-br
-table.table.table-responsive.table-bordered.table-striped
+button.ui.right.floated.primary.basic.button
+  a[href='/admin/jobs/']
+    = semantic_icon 'add circle'
+    | 发布岗位
+table.ui.teal.celled.striped.table
   thead
     tr
       th 发布日期
@@ -11,7 +11,7 @@ table.table.table-responsive.table-bordered.table-striped
       th 薪资下限
       th 薪资上限
       th[colspan="3"] 管理选项
-  tbody
+  tbody#admin_job_list
     - @jobs.each do |job|
       tr
         td
@@ -26,11 +26,33 @@ table.table.table-responsive.table-bordered.table-striped
         td
           = job.wage_upper_bound
         td 
-          => link_to fa_icon('pencil') + ' 编辑', edit_admin_job_path(job), class: 'btn btn-xs btn-primary'
-          => link_to fa_icon('trash-o') + ' 删除', admin_job_path(job), method: :delte, class: 'btn btn-xs btn-danger'
-          -if job.is_hidden
-            => link_to fa_icon('eye') + ' 公开', publish_admin_job_path(job), method: :post, class: 'btn btn-xs btn-success'
-          -else
-            => link_to fa_icon('eye-slash') + ' 隐藏', hide_admin_job_path(job), method: :post, class: 'btn btn-xs btn-warning'
-.container.text-center
-  = will_paginate @jobs, renderer: BootstrapPagination::Rails
+          => link_to fa_icon('pencil') + ' 编辑', edit_admin_job_path(job), class: 'ui blue button'
+          => link_to fa_icon('trash-o') + ' 删除', admin_job_path(job), method: :delte, class: 'ui red button'
+          .ui.toggle.checkbox
+            = check_box_tag "job_status", status_toggle_admin_job_path(job), !job.is_hidden, { "data-job-id": job.id }
+            label 公开
+= will_paginate @collection, renderer: WillPaginateSemanticUi::ActionView::Renderer
+
+javascript:
+	$('#admin_job_list .checkbox').checkbox({
+		onChange: function() {
+      var job_id = $(this).data('job-id');
+      var toggle_url = $(this).attr('value');
+      var job_slide = $(this).parent();
+      $.ajax({
+        url: toggle_url,
+        type: 'post',
+        dataType: 'json',
+        success: function(job) {
+          var job_icon = $('#job_status_icon_'+job_id);
+          if(job.is_hidden){
+            job_icon.attr('class', 'fa fa-lock');
+            job_slide.checkbox('uncheck');
+          } else {
+            job_icon.attr('class', 'fa fa-unlock');
+            job_slide.checkbox('check');
+          }
+        }
+      });
+		}
+	});

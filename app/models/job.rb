@@ -15,4 +15,12 @@ class Job < ApplicationRecord
   def hide!
     self.update_attribute(:is_hidden, true)
   end
+
+  def toggle_status!
+    if is_hidden
+      publish!
+    else
+      hide!
+    end
+  end
 end

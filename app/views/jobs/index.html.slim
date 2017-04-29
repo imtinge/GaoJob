@@ -1,19 +1,15 @@
-.container
-  .dropdown.pull-right
-    button.btn.btn-default.dropdown-toggle#dropdownMenuDivider[type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"]
+.ui.container
+  .ui.hidden.divider
+  .ui.simple.dropdown.button
+    .text
       | 排序
-      span.caret
-    ul.dropdown-menu[aria-labelledby="dropdownMenuDivider"]
-      li
-        = link_to("按照薪资下限排序", jobs_path(:order => "by_lower_bound"))
-      li
-        = link_to("按照薪资上限排序", jobs_path(:order => "by_upper_bound"))
-      li
-        = link_to("按发布时间排序", jobs_path(:order => "by_upper_bound"))
-  br
-  br
-.container
+    = semantic_icon 'dropdown'
+    .menu
+      = link_to "按照薪资下限排序", jobs_path(:order => "by_lower_bound"), class: 'item'
+      = link_to "按照薪资上限排序", jobs_path(:order => "by_upper_bound"), class: 'item'
+      = link_to "按发布时间排序", jobs_path(:order => "by_upper_bound") , class: 'item'
+.ui.container
   ul
     = render partial: 'job', collection: @jobs, as: :job
-.container.text-center
-  = will_paginate @jobs, renderer: BootstrapPagination::Rails
+.ui.center.aligned.container
+  = will_paginate @collection, renderer: WillPaginateSemanticUi::ActionView::Renderer

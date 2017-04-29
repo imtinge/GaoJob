@@ -1,36 +1,25 @@
-nav.navbar.navbar-inverse.navbar-fixed-top[role="navigation"]
-  | <a target="_blank" data-turbolinks='false' href="https://github.com/imtinge/GaoJob"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png"></a>
-  .container
-    .navbar-header
-      button.navbar-toggle.collapsed[type='button' data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"]
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      a.navbar-brand.hover[href="/" data-turbolinks='false' style='color: #fff; font-size: 2em;']
-        => fa_icon "map-o"
-        | 高就网
-
-    .collapse.navbar-collapse#bs-example-navbar-collapse-1
-      ul.nav.navbar-nav.navbar-right
-        - unless current_user
-          li
-            a.btn.btn-lg.hover[data-turbolinks='false' href='/users/sign_in']
-              => fa_icon 'sign-in'
-              | 登入
-          li
-            a.btn.btn-lg.hover[data-turbolinks='false' href='/users/sign_up']
-              => fa_icon 'user-plus'
-              | 注册
-        - else
-          li.dropdown
-            a.dropdown[style='color: #fff; font-size: 16px;' data-turbolinks='false' href="#" data-toggle="dropdown"]
-              => fa_icon 'user-circle-o'
-              = current_user.email
-              b.caret
-            ul.dropdown-menu
-              - if current_user.admin?
-                li
-                  = link_to 'Admin Panel', admin_jobs_path, 'data-turbolinks': false 
-              li
-                = link_to '退出', destroy_user_session_path, 'data-turbolinks': false, method: :delete
+.ui.large.fixed.inverted.menu#navbar
+  | <a target='_blank' href="https://github.com/imtinge/GaoJob"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/121cd7cbdc3e4855075ea8b558508b91ac463ac2/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png"></a>
+  .ui.container
+    a.header.item[href='/']
+      = semantic_icon 'inverted teal large map outline'
+      span[style='font-size: 2em;']
+        | &nbsp;
+        | 高就
+    .right.menu
+      .item
+        .ui.transparent.inverted.icon.input
+          = semantic_icon 'search'
+          input[type='text' placeholder='Search']
+      - unless user_signed_in?
+        .item
+          = link_to 'Log in', new_user_session_path, class: 'ui inverted button', 'data-turbolinks': "false"
+        .item
+          = link_to 'Sign up', new_user_registration_path, class: 'ui inverted button', 'data-turbolinks': "false"
+      - else
+        .ui.simple.dropdown.item[tabindex='0']
+          = current_user.email
+          i.dropdown.icon
+          .menu[tabindex='-1']
+            = link_to 'Admin panel', admin_jobs_path, class: 'item', 'data-turbolinks': "false"
+            = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'item', 'data-turbolinks': "false"

@@ -7,13 +7,19 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = favicon_link_tag
   body
-      = render 'common/navbar'
-      / = render 'common/flashes'
-      .row[style='margin-top: 80px']
-        .col-md-2
-          ul.nav.nav-pills.nav-stacked[style="margin-left: 40px;margin-top: 80px; max-width: 300px; padding-top:20px;"]
-            li.active
-              = link_to 'Jobs', admin_jobs_path
-        .col-md-10[style='margin-bottom: 120px;']
-          = yield
+    = render 'common/navbar'
+    #main.fluid.container
+      / = semantic_flash
+      .ui.hidden.divider
+      .ui.container
+        .ui.grid
+          .three.wide.column
+            .ui.teal.vertical.menu
+              a.active.item[href='/admin/jobs/']
+                | Admin panel
+              a.item[href='/jobs']
+                | Job list
+          .thirteen.wide.column
+            = yield
+      / = render 'common/tawk'
       = render 'common/footer'

@@ -59,6 +59,14 @@ class Admin::JobsController < ApplicationController
     redirect_to :back
   end
 
+  def status_toggle
+    @job = Job.find(params[:id])
+    @job.toggle_status!
+    respond_to do |format|
+      format.json { render json: @job }
+    end
+  end
+
   private
 
   def job_params

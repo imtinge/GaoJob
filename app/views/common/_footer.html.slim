@@ -1,30 +1,15 @@
-footer.footer
-  .row.text-center[style='background-color: black; color: white; padding-top: 20px; padding-bottom: 20px']
-    ul.list-inline#soc-media-list[style='padding: 10px;']
-      li
-        a[target='_blank' href='http://weibo.com/imtinge' style='color: #fff;']
-          = fa_icon 'weibo', class: 'fa-3x'
-      li
-        a[href='#' data-toggle='modal' data-target='#wechart-qrcode' style='color: #fff;']
-          = fa_icon 'weixin', class: 'fa-3x'
-      li
-        a[target='_blank' href='mailto:imtinge@163.com' style='color: #fff;']
-          = fa_icon 'envelope', class: 'fa-3x'
-      li
-        a[target='_blank' href='https://fullstack.xinshengdaxue.com/works/294/' style='color: #fff;']
-          = fa_icon 'thumbs-o-up', class: 'fa-3x'
-    p.h5.text-center
-      | Copyright &copy;2017 高就网 all right reserved 
-      a[href="http://imtinge-blog.logdown.com" target="_new" style="color: white;"] imtinge
+.ui.inverted.footer.segment
+  .ui.stackable.inverted.divided.grid
+    .six.wide.column.center.aligned
+      .ui.inverted.segment
+        | Copyright &copy;2017 高就 all right reserved by imtinge
+    .nine.wide.column.center.aligned
+      .ui.inverted.horizontal.link.list
+        = link_to semantic_icon('big weibo'), 'https://weibo.com/imtinge', target: '_blank', class: 'item'
+        = link_to semantic_icon('big github'), 'https://github.com/imtinge', target: '_blank', class: 'item'
+        = link_to semantic_icon('big bitbucket'), 'https://bitbucket.com/imtinge', target: '_blank', class: 'item'
+    .one.wide.column.center.aligned
+      .ui.inverted.link.list
+        = link_to semantic_icon('big thumbs outline up'), 'https://fullstack.xinshengdaxue.com/works/294', target: '_blank', class: 'item'
 
-#wechart-qrcode.modal.fade[tabindex='-1' role='dialog']
-  .modal-dialog[role='document']
-    .modal-content
-      .modal-header
-        button.close[type='button' data-dismiss='modal' aria-label='Close']
-          span [aria-hidden='true'] &times;
-        h4.modal-title 加我微信，一起聊聊
-      .modal-body
-        = image_tag 'qrcode.jpeg', alt: '微信二维码', class: 'center-block'
-      .modal-footer
-        button.btn.btn-danger[type='button' data-dismiss='modal'] Close
+

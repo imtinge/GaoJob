@@ -3,16 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // index
-#img-jumbotron {
+#welcome-bg {
   background-image: url('https://www.tuchuang001.com/images/2017/04/21/business-man-and-woman-handshake-in-work-office.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 220px;
-  padding-bottom: 240px;
+  padding-bottom: 270px;
   color: #fff;
   margin-bottom: 0;
-}
-
-#service-section {
-  padding: 50px;
+  border: 0;
+  border-radius: 0;
 }

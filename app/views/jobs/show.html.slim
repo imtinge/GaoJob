@@ -1,8 +1,7 @@
-.container
-  h1
-    = @job.title
-  p
+.ui.container[style='min-height: 610px;']
+  .ui.raised.segment
+    h1.header
+      = @job.title
     = simple_format @job.description
-
-  .text-center
-    = link_to '投交简历', new_job_resume_path(@job), style: 'font-size: 30px; text-decoration: underline;'
+    .text-center
+      = link_to '投交简历', new_job_resume_path(@job), style: 'font-size: 30px; text-decoration: underline;'

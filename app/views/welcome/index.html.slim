@@ -1,70 +1,25 @@
-#img-jumbotron.jumbotron.text-center[style='margin-top: -80px;']
-  h1 
-    strong 高就网
-  br
-  h2 找工作，从未如此迅捷
-  h2 让你快速找到属于你的优质工作，高枕无忧，东成西就
-  br
-  a.btn.btn-lg[href='/jobs' data-turbolinks="false" style='background-color: #28CC75; color: #fff;']
-    | 你的高就之路，从这开始
-#service-section
-  .row
-    .container.text-center
-      h3 高就这样帮你找到优质的工作
-      p.lead 五大承诺
-      hr
-      .row
-        .col-md-4
-          .media
-            .media-left.media-middle
-              img.media-object.img-rounded[style="width: 60px; height: 60px;" src="https://www.tuchuang001.com/images/2017/04/22/chance.th.jpg"]
-            .media-body.media-middle
-              strong
-                | 每周有5~10 个来自优质企业的机会，包括出国和回国工作的机会。
-        .col-md-4
-          .media
-            .media-left.media-middle
-              img.media-object.img-rounded[style="width: 60px; height: 60px;" src="https://www.tuchuang001.com/images/2017/04/22/company.th.jpg"]
-            .media-body.media-middle
-              strong
-                | 这里只有世界500强的企业，为让更好的人遇见再好的机会。
-        .col-md-4
-          .media
-            .media-left.media-middle
-              img.media-object.img-rounded[style="width: 60px; height: 60px;" src="https://www.tuchuang001.com/images/2017/04/22/security.th.jpg"]
-            .media-body.media-middle
-              strong
-                | 尊重你的隐私，企业看不到你的联系方式，除非你同意。
-      hr
-      .row
-        .col-md-1
-        .col-md-10
-          .col-md-6
-            .media
-              .media-left.media-middle
-                img.media-object.img-rounded[style="width: 60px; height: 60px;" src="https://www.tuchuang001.com/images/2017/04/22/consultant.th.jpg"]
-              .media-body.media-middle
-                strong
-                  | 顾问在整个过程中向你提供专业的帮助和建议。
-          .col-md-6
-            .media
-              .media-left.media-middle
-                img.media-object.img-rounded[style="width: 60px; height: 60px;" src="https://www.tuchuang001.com/images/2017/04/22/gift.th.jpg"]
-              .media-body.media-middle
-                strong
-                  | 我们不向你收取任何费用，相反，入职后，你还会收到我们的一份贺礼。
-        .col-md-1
-      hr
+.ui.center.aligned.segment#welcome-bg
+  .ui.huge.inverted.header
+    h1[style='font-size: 2em;']
+      | 高就
+    h1 
+      |找工作，从未如此迅捷
+    h1
+      | 让你快速找到属于你的优质工作,
+      | 从此高枕无忧，东成西就
+  .ui.huge.green.button
+    = link_to '高就之路，从之开始', jobs_path, style: 'color: #fff', "data-turbolinks": "false"
+
 
 javascript:
   $(document).ready(function() {
-    $(".navbar-inverse").css("background", "transparent").css('border', '0');
+    $('#navbar').css('background', 'transparent');
   });
 
   $(window).scroll(function() {
-      var value = $(this).scrollTop();
-      if (value > 700)
-          $(".navbar-inverse").css("background", "#000");
-      else
-          $(".navbar-inverse").css("background", "transparent");
+    var value = $(this).scrollTop();
+    if (value > 70)
+      $('#navbar').css('background', '#1B1C1D');
+    else
+      $('#navbar').css('background', 'transparent');
   });
